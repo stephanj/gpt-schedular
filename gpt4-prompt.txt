@@ -1,0 +1,78 @@
+I'm organising a tech event of 5 days with 226 schedule slots and 220 speakers.
+
+The schedule is 5 days, starts from 9h30 and runs until 20h00.  On Friday the event ends at 13h00
+Monday and Tuesday has 5 rooms, Wednesday and Thursday 8 rooms and Friday 5 rooms.
+
+The talks on Monday and Tuesday are 3 hours, the other days the talks are 50 minutes.  
+We have 20 minutes in between and a lunch break of 1 hour.
+
+On Wednesday we have 3 opening keynotes, one of 30 minutes and two of 45 minutes.
+After that a break of 30 minutes followed with the conference talks.
+
+On Thursday evening we have a closing keynote at 18h45 until 19h30.
+
+I want to develop a Python app which will schedule talks based on following constraints:
+
+1. speaker availability (speakers can mention when they are available within this week, the generated schedule must comply)
+2. track constraints (no talks with similar tracks should be schedule during the same time)
+3. If a speaker has two talks they should be with at least on talk in between.
+4. Talks can be favourited by attendees before the event.  Based on the number of favs we should schedule popular talks in bigger rooms and less popular in smaller rooms.
+
+Room capacity:
+We have 8 rooms in total
+2 with capacity of 200 seats,
+4 with 400 seats,
+2 with 800 seats
+
+
+The python app must use Google or-tools for the solution.
+
+
+The base layout of the app looks as follows:
+
+from ortools.sat.python import cp_model
+
+class ConferenceScheduling:
+    def __init__(self):
+        self.model = cp_model.CpModel()
+        self.solver = cp_model.CpSolver()
+
+    def create_speakers(self, num_speakers):
+        # TODO: Create speaker variables and their availability
+
+    def create_talks(self, talks):
+        # TODO: Create talk variables, durations, and tracks
+
+    def create_rooms(self, num_rooms):
+        # TODO: Create room variables and their capacities
+
+    def create_schedule(self, days, start_time, end_time, lunch_break_duration):
+        # TODO: Schedule talks based on constraints
+
+    def optimize_schedule(self):
+        # TODO: Optimize the schedule based on popularity
+
+    def solve(self):
+        # TODO: Solve the scheduling problem
+
+    def print_schedule(self):
+        # TODO: Print the schedule
+
+if __name__ == "__main__":
+    conference = ConferenceScheduling()
+   
+    # TODO: Define the conference parameters (talks, speakers, rooms, etc.)
+
+    conference.create_speakers(220)
+    conference.create_talks(talks)
+    conference.create_rooms(8)
+    conference.create_schedule(days, start_time, end_time, lunch_break_duration)
+    conference.optimize_schedule()
+
+    if conference.solve() == cp_model.OPTIMAL:
+        conference.print_schedule()
+    else:
+        print("No solution found.")
+
+
+Fill the method placeholders based on given logic
